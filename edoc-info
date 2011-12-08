@@ -2,5 +2,5 @@
 {packages,[]}.
 {modules,[couchbeam,couchbeam_app,couchbeam_attachments,couchbeam_changes,
           couchbeam_deps,couchbeam_doc,couchbeam_httpc,couchbeam_json_stream,
-          couchbeam_mime,couchbeam_oldview,couchbeam_sup,couchbeam_util,
-          couchbeam_view,gen_changes]}.
+          couchbeam_oldview,couchbeam_sup,couchbeam_util,couchbeam_view,
+          gen_changes]}.
