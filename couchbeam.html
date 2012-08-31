@@ -12,19 +12,11 @@
 <h1>Module couchbeam</h1>
 <ul class="index"><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>
 
-<p><b>Behaviours:</b> <a href="gen_server.html"><tt>gen_server</tt></a>.</p>
 
 <h2><a name="index">Function Index</a></h2>
 <table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#all_dbs-1">all_dbs/1</a></td><td>get list of databases on a CouchDB node.</td></tr>
 <tr><td valign="top"><a href="#all_docs-1">all_docs/1</a></td><td>(<em>Deprecated</em>.) get all documents from a CouchDB database.</td></tr>
 <tr><td valign="top"><a href="#all_docs-2">all_docs/2</a></td><td>(<em>Deprecated</em>.) get all documents from a CouchDB database.</td></tr>
-<tr><td valign="top"><a href="#changes-1">changes/1</a></td><td>(<em>Deprecated</em>.) get all changes.</td></tr>
-<tr><td valign="top"><a href="#changes-2">changes/2</a></td><td>(<em>Deprecated</em>.) get all changes.</td></tr>
-<tr><td valign="top"><a href="#changes_wait-2">changes_wait/2</a></td><td>(<em>Deprecated</em>.) wait for continuous changes.</td></tr>
-<tr><td valign="top"><a href="#changes_wait-3">changes_wait/3</a></td><td>(<em>Deprecated</em>.) wait for continuous changes to a Pid.</td></tr>
-<tr><td valign="top"><a href="#changes_wait_once-1">changes_wait_once/1</a></td><td>(<em>Deprecated</em>.) wait for longpoll changes.</td></tr>
-<tr><td valign="top"><a href="#changes_wait_once-2">changes_wait_once/2</a></td><td>(<em>Deprecated</em>.) wait for longpoll changes.</td></tr>
-<tr><td valign="top"><a href="#code_change-3">code_change/3</a></td><td></td></tr>
 <tr><td valign="top"><a href="#compact-1">compact/1</a></td><td>Compaction compresses the database file by removing unused
   sections created during updates.</td></tr>
 <tr><td valign="top"><a href="#compact-2">compact/2</a></td><td>Like compact/1 but this compacts the view index from the
@@ -61,9 +53,6 @@
 <tr><td valign="top"><a href="#fetch_attachment-5">fetch_attachment/5</a></td><td>fetch a document attachment.</td></tr>
 <tr><td valign="top"><a href="#get_uuid-1">get_uuid/1</a></td><td>Get one uuid from the server.</td></tr>
 <tr><td valign="top"><a href="#get_uuids-2">get_uuids/2</a></td><td>Get a list of uuids from the server.</td></tr>
-<tr><td valign="top"><a href="#handle_call-3">handle_call/3</a></td><td></td></tr>
-<tr><td valign="top"><a href="#handle_cast-2">handle_cast/2</a></td><td></td></tr>
-<tr><td valign="top"><a href="#handle_info-2">handle_info/2</a></td><td></td></tr>
 <tr><td valign="top"><a href="#lookup_doc_rev-2">lookup_doc_rev/2</a></td><td></td></tr>
 <tr><td valign="top"><a href="#lookup_doc_rev-3">lookup_doc_rev/3</a></td><td></td></tr>
 <tr><td valign="top"><a href="#make_url-3">make_url/3</a></td><td></td></tr>
@@ -92,14 +81,12 @@ A document is a Json object like this one:.</td></tr>
 <tr><td valign="top"><a href="#server_connection-2">server_connection/2</a></td><td>Create a server for connectiong to a CouchDB node.</td></tr>
 <tr><td valign="top"><a href="#server_connection-4">server_connection/4</a></td><td>Create a server for connectiong to a CouchDB node.</td></tr>
 <tr><td valign="top"><a href="#server_info-1">server_info/1</a></td><td>Get Information from the server.</td></tr>
-<tr><td valign="top"><a href="#server_url-1">server_url/1</a></td><td>Assemble the server URL for the given client.</td></tr>
+<tr><td valign="top"><a href="#server_url-1">server_url/1</a></td><td>Asemble the server URL for the given client.</td></tr>
 <tr><td valign="top"><a href="#start-0">start/0</a></td><td>Start the couchbeam process.</td></tr>
-<tr><td valign="top"><a href="#start_link-0">start_link/0</a></td><td>Starts the couchbeam process linked to the calling process.</td></tr>
 <tr><td valign="top"><a href="#stop-0">stop/0</a></td><td>Stop the couchbeam process.</td></tr>
 <tr><td valign="top"><a href="#stream_fetch_attachment-4">stream_fetch_attachment/4</a></td><td>stream fetch attachment to a Pid.</td></tr>
 <tr><td valign="top"><a href="#stream_fetch_attachment-5">stream_fetch_attachment/5</a></td><td>stream fetch attachment to a Pid.</td></tr>
 <tr><td valign="top"><a href="#stream_fetch_attachment-6">stream_fetch_attachment/6</a></td><td>stream fetch attachment to a Pid.</td></tr>
-<tr><td valign="top"><a href="#terminate-2">terminate/2</a></td><td></td></tr>
 <tr><td valign="top"><a href="#uuids_url-1">uuids_url/1</a></td><td></td></tr>
 <tr><td valign="top"><a href="#version-0">version/0</a></td><td>Return the version of the application.</td></tr>
 <tr><td valign="top"><a href="#view-2">view/2</a></td><td>(<em>Deprecated</em>.)  get view results from database.</td></tr>
@@ -134,69 +121,6 @@ A document is a Json object like this one:.</td></tr>
        <li><a href="couchbeam_oldview.html#foreach-1">couchbeam_oldview:foreach/1</a></li>
   </ul>
  </p>
-
-<h3 class="function"><a name="changes-1">changes/1</a></h3>
-<div class="spec">
-<p><tt>changes(Db) -&gt; any()</tt></p>
-</div><p>Equivalent to <a href="#changes-2"><tt>changes(Db, [])</tt></a>.</p>
-<p><b>This function is deprecated:</b> Use <a href="couchbeam_changes.html#fetch-1"><code>couchbeam_changes:fetch/1</code></a> instead.</p>
-<p>get all changes. Do not use this function for longpolling,
-  instead use  <pre>  changes_wait_once</pre> or continuous, use
-  <pre>     wait_once</pre></p>
-
-<h3 class="function"><a name="changes-2">changes/2</a></h3>
-<div class="spec">
-<p><tt>changes(Db::<a href="#type-db">db()</a>, Options::<a href="#type-changesoptions">changesoptions()</a>) -&gt; term()</tt>
-<ul class="definitions"><li><tt><a name="type-changesoptions">changesoptions()</a> = [<a href="#type-changeoption">changeoption()</a>]</tt></li><li><tt><a name="type-changeoption">changeoption()</a> = {include_docs, string()} | {filter, string()} | {since, integer() | string()} | {heartbeat, string() | boolean()}</tt></li></ul></p>
-</div><p><b>This function is deprecated:</b> Use <a href="couchbeam_changes.html#fetch-2"><code>couchbeam_changes:fetch/2</code></a> instead.</p>
-<p>get all changes. Do not use this function for longpolling,
-       instead use  <pre>  changes_wait_once</pre> or continuous, use
-       <pre>          wait_once</pre>
-  See <a href="http://wiki.apache.org/couchdb/HTTP_database_API#Changes" target="_top"><tt>http://wiki.apache.org/couchdb/HTTP_database_API#Changes</tt></a> for more informations.
- </p>
-
-<h3 class="function"><a name="changes_wait-2">changes_wait/2</a></h3>
-<div class="spec">
-<p><tt>changes_wait(Db, ClientPid) -&gt; any()</tt></p>
-</div><p>Equivalent to <a href="#changes_wait-3"><tt>changes_wait(Db, ClientPid, [])</tt></a>.</p>
-<p><b>This function is deprecated:</b> Use <a href="couchbeam_changes.html#stream-2"><code>couchbeam_changes:stream/2</code></a>  instead.</p>
-<p>wait for continuous changes</p>
-
-<h3 class="function"><a name="changes_wait-3">changes_wait/3</a></h3>
-<div class="spec">
-<p><tt>changes_wait(Db::<a href="#type-db">db()</a>, Pid::pid(), Options::<a href="#type-changeoptions">changeoptions()</a>) -&gt; term()</tt><br></p>
-</div><p><b>This function is deprecated:</b> Use <a href="couchbeam_changes.html#stream-3"><code>couchbeam_changes:stream/3</code></a> instead.</p>
-<p>wait for continuous changes to a Pid. Messages sent to the Pid
-       will be of the form <code>{reference(), message()}</code>,
-       where <code>message()</code> is one of:
-       <dl>
-           <dt>done</dt>
-               <dd>You got all the changes</dd>
-           <dt>{change, term()}</dt>
-               <dd>Change row</dd>
-           <dt>{last_seq, binary()}</dt>
-               <dd>last sequence</dd>
-           <dt>{error, term()}</dt>
-               <dd>n error occurred</dd>
-       </dl></p>
-
-<h3 class="function"><a name="changes_wait_once-1">changes_wait_once/1</a></h3>
-<div class="spec">
-<p><tt>changes_wait_once(Db) -&gt; any()</tt></p>
-</div><p>Equivalent to <a href="#changes_wait_once-2"><tt>changes_wait_once(Db, [])</tt></a>.</p>
-<p><b>This function is deprecated:</b> Use <a href="couchbeam_changes.html#fetch-1"><code>couchbeam_changes:fetch/1</code></a>  instead.</p>
-<p>wait for longpoll changes</p>
-
-<h3 class="function"><a name="changes_wait_once-2">changes_wait_once/2</a></h3>
-<div class="spec">
-<p><tt>changes_wait_once(Db, Options) -&gt; any()</tt></p>
-</div><p><b>This function is deprecated:</b> Use <a href="couchbeam_changes.html#fetch-2"><code>couchbeam_changes:fetch/2</code></a> instead.</p>
-<p>wait for longpoll changes</p>
-
-<h3 class="function"><a name="code_change-3">code_change/3</a></h3>
-<div class="spec">
-<p><tt>code_change(OldVsn, State, Extra) -&gt; any()</tt></p>
-</div>
 
 <h3 class="function"><a name="compact-1">compact/1</a></h3>
 <div class="spec">
@@ -366,21 +290,6 @@ A document is a Json object like this one:.</td></tr>
 <p><tt>get_uuids(Server::<a href="#type-server">server()</a>, Count::integer()) -&gt; <a href="#type-lists">lists()</a></tt><br></p>
 </div><p>Get a list of uuids from the server</p>
 
-<h3 class="function"><a name="handle_call-3">handle_call/3</a></h3>
-<div class="spec">
-<p><tt>handle_call(X1, From, State) -&gt; any()</tt></p>
-</div>
-
-<h3 class="function"><a name="handle_cast-2">handle_cast/2</a></h3>
-<div class="spec">
-<p><tt>handle_cast(Msg, State) -&gt; any()</tt></p>
-</div>
-
-<h3 class="function"><a name="handle_info-2">handle_info/2</a></h3>
-<div class="spec">
-<p><tt>handle_info(Info, State) -&gt; any()</tt></p>
-</div>
-
 <h3 class="function"><a name="lookup_doc_rev-2">lookup_doc_rev/2</a></h3>
 <div class="spec">
 <p><tt>lookup_doc_rev(Db, DocId) -&gt; any()</tt></p>
@@ -546,18 +455,12 @@ A document is a Json object like this one:</p>
 <h3 class="function"><a name="server_url-1">server_url/1</a></h3>
 <div class="spec">
 <p><tt>server_url(Server::{Host, Port}) -&gt; iolist()</tt><br></p>
-</div><p>Assemble the server URL for the given client</p>
+</div><p>Asemble the server URL for the given client</p>
 
 <h3 class="function"><a name="start-0">start/0</a></h3>
 <div class="spec">
 <p><tt>start() -&gt; any()</tt></p>
 </div><p>Start the couchbeam process. Useful when testing using the shell.</p>
-
-<h3 class="function"><a name="start_link-0">start_link/0</a></h3>
-<div class="spec">
-<p><tt>start_link() -&gt; {ok, pid()}</tt><br></p>
-</div><p>Starts the couchbeam process linked to the calling process. Usually
-  invoked by the supervisor couchbeam_sup</p>
 
 <h3 class="function"><a name="stop-0">stop/0</a></h3>
 <div class="spec">
@@ -592,11 +495,6 @@ A document is a Json object like this one:</p>
            <dt>{error, term()}</dt>
                <dd>n error occurred</dd>
        </dl></p>
-
-<h3 class="function"><a name="terminate-2">terminate/2</a></h3>
-<div class="spec">
-<p><tt>terminate(Reason, State) -&gt; any()</tt></p>
-</div>
 
 <h3 class="function"><a name="uuids_url-1">uuids_url/1</a></h3>
 <div class="spec">
@@ -640,6 +538,6 @@ with couchbeam_oldview functions:</p>
 <hr>
 
 <div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
-<p><i>Generated by EDoc, Jan 3 2012, 15:42:59.</i></p>
+<p><i>Generated by EDoc, Aug 31 2012, 10:02:31.</i></p>
 </body>
 </html>
