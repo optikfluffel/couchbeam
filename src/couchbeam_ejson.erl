@@ -35,6 +35,8 @@ decode(D) ->
     try
         ?JSON_DECODE(D)
     catch
+        throw:{invalid_json, Error} ->
+            throw({invalid_json, Error});
         throw:Error ->
             throw({invalid_json, Error})
     end.
